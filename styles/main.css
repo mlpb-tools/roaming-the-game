@@ -1,88 +1,63 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROAMING — Ressources</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../styles/main.css" />
-</head>
-<body>
-<header class="header">
-  <div class="header__inner">
-    <div class="brand">
-      <div class="brand__logo" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
-      <div class="brand__text">
-        <div class="brand__kicker">ROAMING / Ressources</div>
-        <div class="brand__title">Outils & scripts</div>
-      </div>
-    </div>
+:root{
+  --ml-vert:#95c11f;
+  --ml-orange:#f39200;
+  --ml-bleu:#2897d5;
+  --ml-rose:#d60b52;
+  --ml-violet:#a3195b;
+  --ml-brique:#9f3d3f;
+  --ml-noir:#171718;
+  --ml-blanc:#ffffff;
+}
 
-    <nav class="nav" aria-label="Navigation principale">
-      <a class="nav__link" href="../index.html">Accueil</a>
-      <a class="nav__link" href="parcours.html">Parcours</a>
-      <a class="nav__link" href="acteurs.html">Acteurs</a>
-      <a class="nav__link is-active" href="ressources.html">Ressources</a>
-    </nav>
-  </div>
-</header>
+*{box-sizing:border-box}
+body{margin:0;font-family:"Muli",Arial,sans-serif;background:#fff;color:var(--ml-noir)}
+a{color:var(--ml-bleu);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:24px}
 
-<main class="container">
-  <div class="pagehead">
-    <div>
-      <div class="breadcrumb">ROAMING / Ressources</div>
-      <h1 class="h1">Bibliothèque</h1>
-      <p class="muted">Ajoute ici tes PDF, fiches, guides. (Tu peux créer un dossier /docs ensuite.)</p>
-    </div>
-  </div>
+.header{border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:10}
+.header__inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand__logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--ml-bleu),var(--ml-vert));display:flex;align-items:center;justify-content:center;color:#fff}
+.brand__kicker{font-size:12px;opacity:.8}
+.brand__title{font-weight:700}
 
-  <div class="grid">
-    <article class="card">
-      <h3 class="card__title"><i class="fa-solid fa-file-pdf"></i> Lexique mobilité</h3>
-      <p class="card__desc">Définitions utiles (dispositifs, rôles, étapes).</p>
-      <div class="card__actions">
-        <a class="btn btn--primary" href="../docs/lexique.pdf" target="_blank" rel="noopener">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir
-        </a>
-      </div>
-      <p class="muted">Si 404 : crée /docs et ajoute lexique.pdf.</p>
-    </article>
+.nav{display:flex;gap:10px;align-items:center}
+.nav__link{padding:8px 10px;border-radius:10px}
+.nav__link.is-active{background:#f5f5f5}
 
-    <article class="card">
-      <h3 class="card__title"><i class="fa-solid fa-screwdriver-wrench"></i> Fiches outils</h3>
-      <p class="card__desc">Checklists, scripts, anti-galère, trame entretien retour.</p>
-      <div class="card__actions">
-        <a class="btn btn--accent" href="module2.html">
-          <i class="fa-solid fa-compass"></i> Voir Module 2
-        </a>
-      </div>
-    </article>
+.btn{border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+.btn--primary{background:var(--ml-orange);color:#fff}
+.btn--accent{background:var(--ml-bleu);color:#fff}
+.btn--ghost{background:#f5f5f5;color:var(--ml-noir)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
 
-    <article class="card">
-      <h3 class="card__title"><i class="fa-solid fa-diagram-project"></i> Structure ROAMING</h3>
-      <p class="card__desc">Modules & séquences (M1→M5).</p>
-      <div class="card__actions">
-        <a class="btn btn--ghost" href="parcours.html"><i class="fa-solid fa-map"></i> Carte</a>
-      </div>
-      <p class="muted">Basé sur ROAMING V3.</p>
-    </article>
-  </div>
-</main>
+.hero{padding:26px 0}
+.h1{font-size:34px;margin:0 0 10px}
+.lead{margin:0 0 18px;opacity:.9}
 
-<footer class="footer">
-  <div class="footer__inner">
-    <div>
-      <div class="footer__title">ROAMING — Mission Locale</div>
-      <div class="footer__meta">Ressources</div>
-    </div>
-    <div class="footer__links">
-      <a href="parcours.html">Parcours</a>
-      <a href="../index.html">Accueil</a>
-    </div>
-  </div>
-</footer>
-</body>
-</html>
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+.stat{border:1px solid #eee;border-radius:16px;padding:14px}
+.stat__num{font-size:22px;font-weight:800}
+.stat__label{font-size:12px;opacity:.7}
+
+.progress{margin:10px 0 16px}
+.progress__bar{height:10px;border-radius:999px;background:#eee;overflow:hidden}
+.progress__fill{height:100%;background:linear-gradient(90deg,var(--ml-vert),var(--ml-bleu))}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+.cards{padding:10px 0 30px}
+.h2{font-size:20px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{border:1px solid #eee;border-radius:18px;padding:14px;background:#fff}
+.card__title{font-weight:800;margin-bottom:6px}
+.card__meta{font-size:12px;opacity:.75;margin-bottom:10px}
+
+.footer{background:var(--ml-noir);color:#fff;margin-top:30px}
+.footer__inner{max-width:1100px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.muted{opacity:.75}
+
+@media (max-width: 900px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:1fr}
+}
