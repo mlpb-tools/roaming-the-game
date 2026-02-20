@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROAMING — Ressources</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<header class="header">
+  <div class="header__inner">
+    <div class="brand">
+      <div class="brand__logo" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
+      <div class="brand__text">
+        <div class="brand__kicker">ROAMING / Ressources</div>
+        <div class="brand__title">Outils & scripts</div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav__link" href="../index.html">Accueil</a>
+      <a class="nav__link" href="parcours.html">Parcours</a>
+      <a class="nav__link" href="acteurs.html">Acteurs</a>
+      <a class="nav__link is-active" href="ressources.html">Ressources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="pagehead">
+    <div>
+      <div class="breadcrumb">ROAMING / Ressources</div>
+      <h1 class="h1">Bibliothèque</h1>
+      <p class="muted">Ajoute ici tes PDF, fiches, guides. (Tu peux créer un dossier /docs ensuite.)</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <h3 class="card__title"><i class="fa-solid fa-file-pdf"></i> Lexique mobilité</h3>
+      <p class="card__desc">Définitions utiles (dispositifs, rôles, étapes).</p>
+      <div class="card__actions">
+        <a class="btn btn--primary" href="../docs/lexique.pdf" target="_blank" rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir
+        </a>
+      </div>
+      <p class="muted">Si 404 : crée /docs et ajoute lexique.pdf.</p>
+    </article>
+
+    <article class="card">
+      <h3 class="card__title"><i class="fa-solid fa-screwdriver-wrench"></i> Fiches outils</h3>
+      <p class="card__desc">Checklists, scripts, anti-galère, trame entretien retour.</p>
+      <div class="card__actions">
+        <a class="btn btn--accent" href="module2.html">
+          <i class="fa-solid fa-compass"></i> Voir Module 2
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3 class="card__title"><i class="fa-solid fa-diagram-project"></i> Structure ROAMING</h3>
+      <p class="card__desc">Modules & séquences (M1→M5).</p>
+      <div class="card__actions">
+        <a class="btn btn--ghost" href="parcours.html"><i class="fa-solid fa-map"></i> Carte</a>
+      </div>
+      <p class="muted">Basé sur ROAMING V3.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__title">ROAMING — Mission Locale</div>
+      <div class="footer__meta">Ressources</div>
+    </div>
+    <div class="footer__links">
+      <a href="parcours.html">Parcours</a>
+      <a href="../index.html">Accueil</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
