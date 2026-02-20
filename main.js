@@ -1,35 +1,44 @@
-// Minimal: dashboard + navigation (pour que GitHub Pages "fonctionne" tout de suite)
-
-const state = {
-  xp: Number(localStorage.getItem("roaming_xp") || 0),
-  badges: Number(localStorage.getItem("roaming_badges") || 0),
-  completedModules: Number(localStorage.getItem("roaming_modules") || 0),
-};
+let xp = Number(localStorage.getItem("xp") || 0);
+let completedModules = Number(localStorage.getItem("modules") || 0);
 
 function updateDashboard(){
-  const totalXP = document.getElementById("totalXP");
-  const totalBadges = document.getElementById("totalBadges");
-  const completedModules = document.getElementById("completedModules");
-  const progressPercent = document.getElementById("progressPercent");
-  const progressFill = document.getElementById("progressFill");
+  const xpEl = document.getElementById("xp");
+  const modEl = document.getElementById("modules");
+  const fill = document.getElementById("progressFill");
 
-  if(!totalXP) return;
+  if(xpEl) xpEl.textContent = xp;
+  if(modEl) modEl.textContent = completedModules;
 
-  totalXP.textContent = state.xp;
-  totalBadges.textContent = state.badges;
-  completedModules.textContent = state.completedModules;
-
-  // progression simple sur 5 modules
-  const pct = Math.min(100, Math.round((state.completedModules / 5) * 100));
-  progressPercent.textContent = pct + "%";
-  progressFill.style.width = pct + "%";
+  if(fill){
+    const pct = Math.min(100, (completedModules / 5) * 100);
+    fill.style.width = pct + "%";
+  }
 }
 
 function goToModule(id){
-  // dans ton repo actuel, les modules sont à la racine : module1.html, module2.html...
   window.location.href = `module${id}.html`;
 }
 
-window.goToModule = goToModule;
+function resetProgress(){
+  localStorage.clear();
+  location.reload();
+}
+
+function validateModule1(){
+  const pitch = document.getElementById("pitch").value.trim();
+  if(pitch.length < 10){
+    alert("Écris au moins quelques phrases.");
+    return;
+  }
+
+  xp += 100;
+  completedModules = 1;
+
+  localStorage.setItem("xp", xp);
+  localStorage.setItem("modules", completedModules);
+
+  document.getElementById("validationMessage").innerHTML =
+    "<p style='color:green;'>Module validé ! 100 XP gagnés.</p>";
+}
 
 document.addEventListener("DOMContentLoaded", updateDashboard);
