@@ -1,142 +1,92 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROAMING — Mission Control | Mission Locale</title>
+    <meta charset="UTF-8">
+    <title>ROAMING — Mission Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts (Muli only; Politica/Akrobat assumed locally/fallback) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- TYPOGRAPHIES -->
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome (icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <link rel="stylesheet" href="styles/main.css" />
-  <script src="js/data_roaming.js" defer></script>
-  <script src="js/app.js" defer></script>
+    <!-- CSS (à la racine) -->
+    <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-  <a class="skip-link" href="#main">Aller au contenu</a>
 
-  <header class="header">
-    <div class="header__inner">
-      <div class="brand">
-        <div class="brand__logo" aria-hidden="true">
-          <i class="fa-solid fa-globe"></i>
-        </div>
-        <div class="brand__text">
-          <div class="brand__kicker">Mission Locale • Professionnalisation</div>
-          <div class="brand__title">ROAMING — Mission Control</div>
-        </div>
-      </div>
-
-      <nav class="nav" aria-label="Navigation principale">
-        <a class="nav__link is-active" href="index.html">Accueil</a>
-        <a class="nav__link" href="pages/parcours.html">Parcours</a>
-        <a class="nav__link" href="pages/acteurs.html">Acteurs</a>
-        <a class="nav__link" href="pages/ressources.html">Ressources</a>
-      </nav>
-
-      <div class="header__cta">
-        <button class="btn btn--primary" type="button" id="ctaStart">
-          <i class="fa-solid fa-rocket"></i> Démarrer une prescription
-        </button>
-      </div>
+<header class="main-header">
+    <div class="logo">
+        <h1>ROAMING — Mission Control</h1>
     </div>
-  </header>
 
-  <main id="main" class="container">
-    <section class="hero">
-      <div class="hero__content">
-        <h1 class="h1">Outiller les conseillers pour déclencher, sécuriser et valoriser la mobilité internationale</h1>
-        <p class="lead">
-          Un parcours simple et opérationnel (micro-activités, scripts, checklists) pour harmoniser les pratiques
-          et réduire les délais entre prescription et départ.
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--accent" href="pages/parcours.html">
-            <i class="fa-solid fa-map"></i> Ouvrir la carte du parcours
-          </a>
-          <button class="btn btn--ghost" type="button" id="resetBtn">
-            <i class="fa-solid fa-rotate-left"></i> Réinitialiser la progression
-          </button>
-        </div>
+    <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="parcours.html">Parcours</a>
+        <a href="acteurs.html">Acteurs</a>
+        <a href="ressources.html">Ressources</a>
+    </nav>
 
-        <div class="statbar" role="group" aria-label="Indicateurs">
-          <div class="stat">
-            <div class="stat__num" id="statXP">0</div>
-            <div class="stat__label">XP</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num" id="statBadges">0</div>
-            <div class="stat__label">Badges</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num" id="statModules">0/5</div>
-            <div class="stat__label">Modules</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num" id="statProgress">0%</div>
-            <div class="stat__label">Progression</div>
-          </div>
-        </div>
+    <button class="cta-btn" onclick="startPrescription()">
+        Démarrer une prescription
+    </button>
+</header>
 
-        <div class="progress">
-          <div class="progress__bar">
-            <div class="progress__fill" id="progressFill" style="width:0%"></div>
-          </div>
-          <div class="progress__hint" id="progressHint">Commence par le Module 1 : déclencher l’envie et lever les freins.</div>
-        </div>
-      </div>
+<section class="hero">
+    <h2>Outiller les conseillers pour déclencher, sécuriser et valoriser la mobilité internationale</h2>
+    <p>
+        Un parcours simple et opérationnel (micro-activités, scripts, checklists)
+        pour harmoniser les pratiques et réduire les délais entre prescription et départ.
+    </p>
 
-      <div class="hero__card">
-        <h2 class="h2"><i class="fa-solid fa-bullseye"></i> Ce que tu vas produire</h2>
-        <ul class="list">
-          <li>Un pitch mobilité prêt à l’emploi</li>
-          <li>Un diagnostic “profil mobilité” simple</li>
-          <li>Un plan de route (avant / pendant / après)</li>
-          <li>Une charte de suivi + protocole signaux faibles</li>
-          <li>Un kit valorisation au retour</li>
-        </ul>
-        <p class="muted">
-          Basé sur la structure ROAMING (M1→M5 : comprendre, préparer, suivre, valoriser, coopérer).
-        </p>
-      </div>
-    </section>
-
-    <section class="cards">
-      <div class="section-head">
-        <h2 class="h2"><i class="fa-solid fa-layer-group"></i> Modules</h2>
-        <p class="muted">Déverrouillage progressif : M2→M5 se débloquent quand le module précédent est validé.</p>
-      </div>
-
-      <div class="grid" id="modulesGrid"></div>
-    </section>
-
-    <section class="panel">
-      <div class="panel__head">
-        <h2 class="h2"><i class="fa-solid fa-wand-magic-sparkles"></i> Mode “Prescription” (simulation terrain)</h2>
-        <p class="muted">Un mini-flux en 4 étapes pour guider un conseiller peu expérimenté, du repérage au départ.</p>
-      </div>
-
-      <div class="flow" id="prescriptionFlow"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <div>
-        <div class="footer__title">ROAMING — Mission Locale</div>
-        <div class="footer__meta">Prototype statique (GitHub Pages) • 2026</div>
-      </div>
-      <div class="footer__links">
-        <a href="pages/ressources.html">Ressources</a>
-        <a href="pages/acteurs.html">Acteurs</a>
-        <a href="pages/parcours.html">Parcours</a>
-      </div>
+    <div class="hero-actions">
+        <button onclick="goToParcours()">Ouvrir la carte du parcours</button>
+        <button onclick="resetProgress()">Réinitialiser la progression</button>
     </div>
-  </footer>
+</section>
+
+<section class="dashboard">
+    <div class="stats">
+        <div>
+            <h3 id="xpDisplay">0</h3>
+            <p>XP</p>
+        </div>
+        <div>
+            <h3 id="badgesDisplay">0</h3>
+            <p>Badges</p>
+        </div>
+        <div>
+            <h3 id="modulesDisplay">0/5</h3>
+            <p>Modules</p>
+        </div>
+        <div>
+            <h3 id="progressDisplay">0%</h3>
+            <p>Progression</p>
+        </div>
+    </div>
+
+    <p class="start-hint">
+        Commence par le Module 1 : déclencher l’envie et lever les freins.
+    </p>
+</section>
+
+<section class="production">
+    <h2>Ce que tu vas produire</h2>
+    <ul>
+        <li>Un pitch mobilité prêt à l’emploi</li>
+        <li>Un diagnostic “profil mobilité” simple</li>
+        <li>Un plan de route (avant / pendant / après)</li>
+        <li>Une charte de suivi + protocole signaux faibles</li>
+        <li>Un kit valorisation au retour</li>
+    </ul>
+</section>
+
+<footer class="main-footer">
+    <p>© 2026 ROAMING — Mission Locale</p>
+</footer>
+
+<!-- JS (à la racine) -->
+<script src="data_roaming.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
