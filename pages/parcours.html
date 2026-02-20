@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROAMING — Carte du parcours</title>
 
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS (repo structuré) -->
+  <link rel="stylesheet" href="../styles/main.css" />
+
+  <!-- JS (repo structuré) -->
+  <script src="../js/data_roaming.js" defer></script>
+  <script src="../js/app.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <div class="brand">
+      <div class="brand__logo">
+        <i class="fa-solid fa-globe"></i>
+      </div>
+      <div class="brand__text">
+        <div class="brand__kicker">Mission Locale • ROAMING</div>
+        <div class="brand__title">Carte du parcours</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav__link" href="../index.html">Accueil</a>
+      <a class="nav__link is-active" href="parcours.html">Parcours</a>
+      <a class="nav__link" href="acteurs.html">Acteurs</a>
+      <a class="nav__link" href="ressources.html">Ressources</a>
+    </nav>
+
+    <div class="header__cta">
+      <button class="btn btn--ghost" type="button" id="resetBtn2">
+        <i class="fa-solid fa-rotate-left"></i> Réinitialiser
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="pagehead">
+    <div>
+      <div class="breadcrumb">ROAMING / Parcours</div>
+      <h1 class="h1">Progression et déverrouillage</h1>
+      <p class="muted">
+        Termine un module pour débloquer le suivant.
+      </p>
+    </div>
+
+    <div class="kpirow" id="parcoursKpi">
+      <!-- Injecté par app.js -->
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="grid" id="parcoursGrid">
+      <!-- Injecté par app.js -->
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__title">ROAMING — Mission Locale</div>
+      <div class="footer__meta">Prototype GitHub Pages • 2026</div>
+    </div>
+    <div class="footer__links">
+      <a href="../index.html">Accueil</a>
+      <a href="acteurs.html">Acteurs</a>
+      <a href="ressources.html">Ressources</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
