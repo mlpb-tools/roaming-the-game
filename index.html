@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROAMING APP - Parcours de Professionnalisation | Mission Locale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo">
+                <i class="fas fa-globe-europe"></i>
+                <h1>ROAMING APP</h1>
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <span class="user-name" id="userName">Conseiller</span>
+                    <span class="user-level">Niveau <span id="userLevel">1</span></span>
+                </div>
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mission Control Dashboard -->
+        <section class="mission-control">
+            <h2><i class="fas fa-satellite"></i> Mission Control</h2>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-content">
+                        <h3 id="totalXP">0</h3>
+                        <p>Points XP</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <div class="stat-content">
+                        <h3 id="totalBadges">0</h3>
+                        <p>Badges débloqués</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-content">
+                        <h3 id="completedModules">0</h3>
+                        <p>Modules complétés</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="stat-content">
+                        <h3 id="progressPercent">0%</h3>
+                        <p>Progression globale</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module Navigation Map -->
+        <section class="modules-map">
+            <h2><i class="fas fa-map"></i> Carte du Parcours</h2>
+            <div class="modules-grid">
+                
+                <!-- Module 1 -->
+                <div class="module-card" data-module="1">
+                    <div class="module-icon blue">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 1</h3>
+                        <h4>L'Île des Croyances</h4>
+                        <p>Comprendre la mobilité et lever les croyances limitantes</p>
+                        <div class="module-meta">
+                            <span><i class="fas fa-clock"></i> 3-4h</span>
+                            <span><i class="fas fa-tasks"></i> 3 séquences</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-mini">
+                                <div class="progress-mini-fill" data-progress="0"></div>
+                            </div>
+                            <span class="progress-text">0% complété</span>
+                        </div>
+                        <button class="btn-start" onclick="goToModule(1)">
+                            <i class="fas fa-play"></i> Commencer
+                        </button>
+                    </div>
+                    <div class="module-badge locked" id="badge-1">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card" data-module="2">
+                    <div class="module-icon green">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 2</h3>
+                        <h4>La Vallée de la Préparation</h4>
+                        <p>Construire le départ avec outils et dispositifs</p>
+                        <div class="module-meta">
+                            <span><i class="fas fa-clock"></i> 4-5h</span>
+                            <span><i class="fas fa-tasks"></i> 4 séquences</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-mini">
+                                <div class="progress-mini-fill" data-progress="0"></div>
+                            </div>
+                            <span class="progress-text">0% complété</span>
+                        </div>
+                        <button class="btn-start locked" onclick="goToModule(2)">
+                            <i class="fas fa-lock"></i> Verrouillé
+                        </button>
+                    </div>
+                    <div class="module-badge locked" id="badge-2">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card" data-module="3">
+                    <div class="module-icon pink">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 3</h3>
+                        <h4>L'Archipel du Suivi</h4>
+                        <p>Garder le lien et accompagner à distance pendant la mobilité</p>
+                        <div class="module-meta">
+                            <span><i class="fas fa-clock"></i> 2-3h</span>
+                            <span><i class="fas fa-tasks"></i> 2 séquences</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-mini">
+                                <div class="progress-mini-fill" data-progress="0"></div>
+                            </div>
+                            <span class="progress-text">0% complété</span>
+                        </div>
+                        <button class="btn-start locked" onclick="goToModule(3)">
+                            <i class="fas fa-lock"></i> Verrouillé
+                        </button>
+                    </div>
+                    <div class="module-badge locked" id="badge-3">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card" data-module="4">
+                    <div class="module-icon orange">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 4</h3>
+                        <h4>Le Port du Retour</h4>
+                        <p>Valoriser les acquis et capitaliser l'expérience après la mobilité</p>
+                        <div class="module-meta">
+                            <span><i class="fas fa-clock"></i> 3h</span>
+                            <span><i class="fas fa-tasks"></i> 3 séquences</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-mini">
+                                <div class="progress-mini-fill" data-progress="0"></div>
+                            </div>
+                            <span class="progress-text">0% complété</span>
+                        </div>
+                        <button class="btn-start locked" onclick="goToModule(4)">
+                            <i class="fas fa-lock"></i> Verrouillé
+                        </button>
+                    </div>
+                    <div class="module-badge locked" id="badge-4">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card" data-module="5">
+                    <div class="module-icon purple">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="module-content">
+                        <h3>Module 5</h3>
+                        <h4>La Citadelle des Réseaux</h4>
+                        <p>Coopération territoriale et rôle stratégique des Missions Locales</p>
+                        <div class="module-meta">
+                            <span><i class="fas fa-clock"></i> 3h</span>
+                            <span><i class="fas fa-tasks"></i> 3 séquences</span>
+                        </div>
+                        <div class="module-progress">
+                            <div class="progress-mini">
+                                <div class="progress-mini-fill" data-progress="0"></div>
+                            </div>
+                            <span class="progress-text">0% complété</span>
+                        </div>
+                        <button class="btn-start locked" onclick="goToModule(5)">
+                            <i class="fas fa-lock"></i> Verrouillé
+                        </button>
+                    </div>
+                    <div class="module-badge locked" id="badge-5">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Badges Collection -->
+        <section class="badges-section">
+            <h2><i class="fas fa-medal"></i> Collection de Badges</h2>
+            <div class="badges-grid" id="badgesGrid">
+                <!-- Badges will be dynamically populated -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>&copy; 2026 ROAMING APP - Mission Locale | Développé pour la professionnalisation des conseillers</p>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-question-circle"></i> Aide</a>
+                <a href="#"><i class="fas fa-book"></i> Ressources</a>
+                <a href="#"><i class="fas fa-users"></i> Communauté</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

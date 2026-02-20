@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4 - Le Port du Retour | ROAMING APP</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/module.css">
+    <link rel="stylesheet" href="styles/activities.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="module-page">
+    <!-- Navigation Header -->
+    <header class="module-header orange">
+        <div class="header-content">
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Retour</a>
+            <div class="module-title">
+                <i class="fas fa-anchor"></i>
+                <div>
+                    <h1>Module 4 - Le Port du Retour</h1>
+                    <p>Capitaliser et valoriser l'expérience</p>
+                </div>
+            </div>
+            <div class="module-progress-header">
+                <span id="moduleProgressText">0/3 séquences</span>
+                <div class="progress-bar-mini">
+                    <div class="progress-fill-mini" id="moduleProgressBar"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="module-container">
+        <!-- Sequences Grid -->
+        <section class="sequences-section">
+            
+            <!-- Sequence 4.1 -->
+            <div class="sequence-card" id="seq-4-1">
+                <div class="sequence-number">Séquence 4.1</div>
+                <div class="sequence-content">
+                    <h3><i class="fas fa-microphone"></i> L'Entretien Miroir</h3>
+                    <p class="sequence-description">
+                        Mener l'entretien de retour. Structurer un entretien retour productif en trois phases : 
+                        émotion, compétence, projet pour valoriser l'expérience vécue.
+                    </p>
+                    <div class="sequence-objectives">
+                        <h4>Objectifs</h4>
+                        <ul>
+                            <li>Identifier les étapes du débrief</li>
+                            <li>Conduire un entretien de valorisation</li>
+                            <li>Accompagner le bilan de l'expérience</li>
+                        </ul>
+                    </div>
+                    <div class="sequence-meta">
+                        <span><i class="fas fa-clock"></i> 60 min</span>
+                        <span><i class="fas fa-star"></i> +140 XP</span>
+                    </div>
+                </div>
+                <button class="btn-start-sequence" onclick="startSequence(4, 1)">
+                    <i class="fas fa-play"></i> Commencer
+                </button>
+            </div>
+
+            <!-- Sequence 4.2 -->
+            <div class="sequence-card locked" id="seq-4-2">
+                <div class="sequence-number">Séquence 4.2</div>
+                <div class="sequence-content">
+                    <h3><i class="fas fa-file-alt"></i> Le CV Augmenté</h3>
+                    <p class="sequence-description">
+                        Valoriser les acquis et compétences. Traduire l'expérience en atout professionnel 
+                        en reliant les vécus aux compétences transférables.
+                    </p>
+                    <div class="sequence-objectives">
+                        <h4>Objectifs</h4>
+                        <ul>
+                            <li>Relier les expériences aux compétences</li>
+                            <li>Co-rédiger un CV mobilité / badge</li>
+                            <li>Soutenir la valorisation concrète</li>
+                        </ul>
+                    </div>
+                    <div class="sequence-meta">
+                        <span><i class="fas fa-clock"></i> 75 min</span>
+                        <span><i class="fas fa-star"></i> +150 XP</span>
+                    </div>
+                </div>
+                <button class="btn-start-sequence" onclick="startSequence(4, 2)">
+                    <i class="fas fa-lock"></i> Verrouillé
+                </button>
+            </div>
+
+            <!-- Sequence 4.3 -->
+            <div class="sequence-card locked" id="seq-4-3">
+                <div class="sequence-number">Séquence 4.3</div>
+                <div class="sequence-content">
+                    <h3><i class="fas fa-bullhorn"></i> Le Storytelling</h3>
+                    <p class="sequence-description">
+                        Communiquer et témoigner. Aider le jeune à partager son expérience de manière inspirante 
+                        pour promouvoir les réussites et renforcer la confiance.
+                    </p>
+                    <div class="sequence-objectives">
+                        <h4>Objectifs</h4>
+                        <ul>
+                            <li>Identifier les messages clés à transmettre</li>
+                            <li>Construire un témoignage inspirant</li>
+                            <li>Promouvoir les réussites</li>
+                        </ul>
+                    </div>
+                    <div class="sequence-meta">
+                        <span><i class="fas fa-clock"></i> 60 min</span>
+                        <span><i class="fas fa-star"></i> +130 XP</span>
+                    </div>
+                </div>
+                <button class="btn-start-sequence" onclick="startSequence(4, 3)">
+                    <i class="fas fa-lock"></i> Verrouillé
+                </button>
+            </div>
+        </section>
+
+        <!-- Activity Panel -->
+        <div id="activityPanel" class="activity-panel hidden">
+            <div class="activity-header">
+                <h2 id="activityTitle"></h2>
+                <button class="btn-close-activity" onclick="closeActivity()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="activityContent" class="activity-content">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Completion Modal -->
+    <div id="completionModal" class="modal hidden">
+        <div class="modal-content success">
+            <div class="modal-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2>Module 4 Complété !</h2>
+            <p>Félicitations ! Vous avez débloqué le badge "Valorisateur d'Expérience"</p>
+            <div class="reward-display">
+                <div class="badge-earned">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="xp-earned">
+                    <i class="fas fa-star"></i>
+                    <span>+420 XP</span>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="returnToDashboard()">
+                Retour au Dashboard
+            </button>
+            <button class="btn-secondary" onclick="goToNextModule()">
+                Module suivant <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/module4.js"></script>
+</body>
+</html>

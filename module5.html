@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5 - La Citadelle des Réseaux | ROAMING APP</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/module.css">
+    <link rel="stylesheet" href="styles/activities.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="module-page">
+    <!-- Navigation Header -->
+    <header class="module-header purple">
+        <div class="header-content">
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Retour</a>
+            <div class="module-title">
+                <i class="fas fa-network-wired"></i>
+                <div>
+                    <h1>Module 5 - La Citadelle des Réseaux</h1>
+                    <p>Coopération territoriale et stratégie</p>
+                </div>
+            </div>
+            <div class="module-progress-header">
+                <span id="moduleProgressText">0/3 séquences</span>
+                <div class="progress-bar-mini">
+                    <div class="progress-fill-mini" id="moduleProgressBar"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="module-container">
+        <!-- Sequences Grid -->
+        <section class="sequences-section">
+            
+            <!-- Sequence 5.1 -->
+            <div class="sequence-card" id="seq-5-1">
+                <div class="sequence-number">Séquence 5.1</div>
+                <div class="sequence-content">
+                    <h3><i class="fas fa-landmark"></i> Le Jeu des Rôles</h3>
+                    <p class="sequence-description">
+                        Comprendre le rôle stratégique des Missions Locales. Positionner la ML comme acteur clé 
+                        de la mobilité et clarifier sa contribution institutionnelle.
+                    </p>
+                    <div class="sequence-objectives">
+                        <h4>Objectifs</h4>
+                        <ul>
+                            <li>Comprendre la mission publique</li>
+                            <li>Argumenter le rôle stratégique de la ML</li>
+                            <li>Clarifier le cadre partenarial</li>
+                        </ul>
+                    </div>
+                    <div class="sequence-meta">
+                        <span><i class="fas fa-clock"></i> 60 min</span>
+                        <span><i class="fas fa-star"></i> +120 XP</span>
+                    </div>
+                </div>
+                <button class="btn-start-sequence" onclick="startSequence(5, 1)">
+                    <i class="fas fa-play"></i> Commencer
+                </button>
+            </div>
+
+            <!-- Sequence 5.2 -->
+            <div class="sequence-card locked" id="seq-5-2">
+                <div class="sequence-number">Séquence 5.2</div>
+                <div class="sequence-content">
+                    <h3><i class="fas fa-map-marked-alt"></i> Le Réseau Cartographique</h3>
+                    <p class="sequence-description">
+                        Structurer le réseau de partenaires. Renforcer la coopération territoriale en animant 
+                        un écosystème local de mobilité avec les acteurs clés.
+                    </p>
+                    <div class="sequence-objectives">
+                        <h4>Objectifs</h4>
+                        <ul>
+                            <li>Identifier les partenaires clés</li>
+                            <li>Construire une carte réseau mobilité</li>
+                            <li>Animer un écosystème local</li>
+                        </ul>
+                    </div>
+                    <div class="sequence-meta">
+                        <span><i class="fas fa-clock"></i> 75 min</span>
+                        <span><i class="fas fa-star"></i> +150 XP</span>
+                    </div>
+                </div>
+                <button class="btn-start-sequence" onclick="startSequence(5, 2)">
+                    <i class="fas fa-lock"></i> Verrouillé
+                </button>
+            </div>
+
+            <!-- Sequence 5.3 -->
+            <div class="sequence-card locked" id="seq-5-3">
+                <div class="sequence-number">Séquence 5.3</div>
+                <div class="sequence-content">
+                    <h3><i class="fas fa-archive"></i> Le Lab' de Capitalisation</h3>
+                    <p class="sequence-description">
+                        Capitaliser et diffuser les pratiques. Pérenniser la démarche mobilité en valorisant 
+                        et partageant les réussites avec le réseau.
+                    </p>
+                    <div class="sequence-objectives">
+                        <h4>Objectifs</h4>
+                        <ul>
+                            <li>Identifier les formes de capitalisation</li>
+                            <li>Produire une fiche retour d'expérience</li>
+                            <li>Valoriser et partager les réussites</li>
+                        </ul>
+                    </div>
+                    <div class="sequence-meta">
+                        <span><i class="fas fa-clock"></i> 60 min</span>
+                        <span><i class="fas fa-star"></i> +130 XP</span>
+                    </div>
+                </div>
+                <button class="btn-start-sequence" onclick="startSequence(5, 3)">
+                    <i class="fas fa-lock"></i> Verrouillé
+                </button>
+            </div>
+        </section>
+
+        <!-- Activity Panel -->
+        <div id="activityPanel" class="activity-panel hidden">
+            <div class="activity-header">
+                <h2 id="activityTitle"></h2>
+                <button class="btn-close-activity" onclick="closeActivity()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="activityContent" class="activity-content">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Completion Modal -->
+    <div id="completionModal" class="modal hidden">
+        <div class="modal-content success">
+            <div class="modal-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h2>Parcours ROAMING Complété !</h2>
+            <p>Félicitations ! Vous êtes maintenant un <strong>Maître ROAMING</strong></p>
+            <div class="reward-display">
+                <div class="badge-earned legendary">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="xp-earned">
+                    <i class="fas fa-star"></i>
+                    <span>+400 XP + Bonus 500 XP</span>
+                </div>
+            </div>
+            <div class="completion-stats">
+                <h3>Statistiques finales</h3>
+                <ul>
+                    <li>5 modules complétés</li>
+                    <li>15 séquences maîtrisées</li>
+                    <li>5 badges légendaires débloqués</li>
+                    <li>Certification ROAMING obtenue</li>
+                </ul>
+            </div>
+            <button class="btn-primary" onclick="downloadCertificate()">
+                <i class="fas fa-download"></i> Télécharger ma certification
+            </button>
+            <button class="btn-secondary" onclick="returnToDashboard()">
+                Retour au Dashboard
+            </button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/module5.js"></script>
+</body>
+</html>
