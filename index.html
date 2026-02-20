@@ -1,105 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROAMING — Mission Control | Mission Locale</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROAMING — Mission Control</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-  <header class="header">
-    <div class="header__inner">
-      <div class="brand">
-        <div class="brand__logo"><i class="fa-solid fa-globe"></i></div>
-        <div class="brand__text">
-          <div class="brand__kicker">Mission Locale • Professionnalisation</div>
-          <div class="brand__title">ROAMING — Mission Control</div>
-        </div>
+
+<header class="header">
+  <div class="header__inner">
+    <div class="brand">
+      <div class="brand__title">ROAMING — Mission Control</div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav__link is-active" href="index.html">Accueil</a>
+      <a class="nav__link" href="module1.html">Module 1</a>
+    </nav>
+
+    <button class="btn btn--primary" onclick="goToModule(1)">
+      Démarrer
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Outiller les conseillers à la mobilité internationale</h1>
+    <p>Déclencher • Sécuriser • Valoriser les parcours mobilité</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div id="xp">0</div>
+        <small>XP</small>
       </div>
-
-      <nav class="nav">
-        <a class="nav__link is-active" href="index.html">Accueil</a>
-        <a class="nav__link" href="parcours.html">Parcours</a>
-      </nav>
-
-      <div class="header__cta">
-        <button class="btn btn--primary" type="button" onclick="goToModule(1)">
-          Démarrer
-        </button>
+      <div class="stat">
+        <div id="modules">0</div>
+        <small>Modules complétés</small>
       </div>
     </div>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1 class="h1">Outiller les conseillers pour déclencher, sécuriser et valoriser la mobilité internationale</h1>
-      <p class="lead">Dashboard + progression + accès aux modules (déverrouillage progressif).</p>
-
-      <div class="stats">
-        <div class="stat"><div class="stat__num" id="totalXP">0</div><div class="stat__label">XP</div></div>
-        <div class="stat"><div class="stat__num" id="totalBadges">0</div><div class="stat__label">Badges</div></div>
-        <div class="stat"><div class="stat__num" id="completedModules">0</div><div class="stat__label">Modules</div></div>
-        <div class="stat"><div class="stat__num" id="progressPercent">0%</div><div class="stat__label">Progression</div></div>
+    <div class="progress">
+      <div class="progress-bar">
+        <div id="progressFill"></div>
       </div>
-
-      <div class="progress">
-        <div class="progress__bar"><div class="progress__fill" id="progressFill" style="width:0%"></div></div>
-      </div>
-
-      <div class="actions">
-        <a class="btn btn--accent" href="parcours.html">Ouvrir le parcours</a>
-        <button class="btn btn--ghost" type="button" onclick="localStorage.clear();location.reload();">Reset</button>
-      </div>
-    </section>
-
-    <section class="cards">
-      <h2 class="h2">Modules</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card__title">Module 1 — L’Île des Croyances</div>
-          <div class="card__meta">3 séquences • 450 XP</div>
-          <button class="btn btn--primary" onclick="goToModule(1)">Commencer</button>
-        </div>
-        <div class="card">
-          <div class="card__title">Module 2 — La Vallée de la Préparation</div>
-          <div class="card__meta">4 séquences • 580 XP</div>
-          <button class="btn btn--ghost" disabled>Verrouillé</button>
-        </div>
-        <div class="card">
-          <div class="card__title">Module 3 — L’Archipel du Suivi</div>
-          <div class="card__meta">2 séquences • 300 XP</div>
-          <button class="btn btn--ghost" disabled>Verrouillé</button>
-        </div>
-        <div class="card">
-          <div class="card__title">Module 4 — Le Port du Retour</div>
-          <div class="card__meta">3 séquences • 420 XP</div>
-          <button class="btn btn--ghost" disabled>Verrouillé</button>
-        </div>
-        <div class="card">
-          <div class="card__title">Module 5 — La Citadelle des Réseaux</div>
-          <div class="card__meta">3 séquences • 400 XP</div>
-          <button class="btn btn--ghost" disabled>Verrouillé</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <div>© 2026 ROAMING — Mission Locale</div>
-      <div class="muted">GitHub Pages • prototype</div>
     </div>
-  </footer>
 
-  <!-- JS : IMPORTANT -->
-  <script src="main.js"></script>
+    <div class="actions">
+      <button class="btn btn--accent" onclick="goToModule(1)">
+        Commencer Module 1
+      </button>
+      <button class="btn btn--ghost" onclick="resetProgress()">
+        Réinitialiser
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  © 2026 ROAMING — Mission Locale
+</footer>
+
+<script src="main.js"></script>
+
 </body>
 </html>
