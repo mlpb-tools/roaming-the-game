@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROAMING — Parcours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <div class="brand">
+        <div class="brand__logo"><i class="fa-solid fa-map"></i></div>
+        <div class="brand__text">
+          <div class="brand__kicker">ROAMING</div>
+          <div class="brand__title">Parcours</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link is-active" href="parcours.html">Parcours</a>
+      </nav>
+      <div class="header__cta">
+        <button class="btn btn--primary" onclick="goToModule(1)">Commencer M1</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="h1">Carte du parcours</h1>
+    <p class="lead">Accès rapide aux modules (les verrous seront gérés quand on rebranche ta logique complète).</p>
+
+    <div class="grid">
+      <div class="card"><div class="card__title">Module 1</div><div class="card__meta">Déclencher • Freins</div><button class="btn btn--primary" onclick="goToModule(1)">Ouvrir</button></div>
+      <div class="card"><div class="card__title">Module 2</div><div class="card__meta">Préparer • Dispositifs</div><button class="btn btn--accent" onclick="goToModule(2)">Ouvrir</button></div>
+      <div class="card"><div class="card__title">Module 3</div><div class="card__meta">Suivi • Signaux faibles</div><button class="btn btn--accent" onclick="goToModule(3)">Ouvrir</button></div>
+      <div class="card"><div class="card__title">Module 4</div><div class="card__meta">Retour • Valorisation</div><button class="btn btn--accent" onclick="goToModule(4)">Ouvrir</button></div>
+      <div class="card"><div class="card__title">Module 5</div><div class="card__meta">Réseaux • Partenaires</div><button class="btn btn--accent" onclick="goToModule(5)">Ouvrir</button></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>© 2026 ROAMING — Mission Locale</div>
+      <div class="muted">GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
